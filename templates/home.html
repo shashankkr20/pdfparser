@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* responsive from >265px in width */
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+        body {
+        background-color: rgb(243, 234, 217, 0.5);
+        }
+        .heading {
+        background-color: rgb(122, 255, 122);
+        width: 100vw;
+        display: flex;
+        height: 100px;
+        font-size: 78px;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.5);
+        }
+        .mid {
+        display: flex;
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
+        }
+        .box1 {
+        position: absolute;
+        top: 200px;
+        left: 10vw;
+        width: 80vw;
+        background-color: rgb(250, 66, 66);
+        height: 350px;
+        border-radius: 10px;
+        box-shadow: inset 2px -2px 0 0px rgba(255, 255, 255, 0.482),
+            5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+        }
+        .boxin {
+        position: absolute;
+        top: 25px;
+        left: 5vw;
+        height: 300px;
+        width: 70vw;
+        background-color: rgba(198, 86, 86, 0.589);
+        border-style: double;
+        }
+        s .boxin:hover {
+        background-color: rgba(191, 85, 85, 0.622);
+        }
+        .input-button {
+        width: 70vw;
+        height: 300px;
+        padding: 90px 20vw;
+        cursor: pointer;
+        font-size: 25px;
+        }
+        .input-button:active {
+        position: absolute;
+        top: 2px;
+        }
+        .head2 {
+        position: absolute;
+        top: 570px;
+        height: 50px;
+        width: 100vw;
+        display: flex;
+
+        justify-content: space-around;
+        align-items: center;
+        }
+        .head2_ {
+            position: absolute;
+            top: 650px;
+            height: 50px;
+            width: 100vw;
+            display: flex;
+    
+            justify-content: space-around;
+            align-items: center;
+            }
+
+        .submit {
+        background: rgb(255, 151, 0);
+        border: none;
+        z-index: 1;
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+        box-shadow: inset 2px -2px 0 0px rgba(255, 255, 255, 0.482),
+            3px 5px 5px 0px rgba(0, 0, 0, 0.5);
+        }
+        .submit:hover {
+            color: rgb(106, 255, 0);
+            background-color: rgb(238, 64, 11);
+        transition: all 0.3s ease-in;
+        }
+        .submit:active {
+        position: absolute;
+        top: 2px;
+        box-shadow: 0 0 0 0px black;
+        }
+
+        .submitc {
+            background: rgb(255, 151, 0);
+            border: none;
+            z-index: 1;
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            box-shadow: inset 2px -2px 0 0px rgba(255, 255, 255, 0.482),
+                3px 5px 5px 0px rgba(0, 0, 0, 0.5);
+            }
+            .submitc:hover {
+                color: rgb(66, 247, 72);
+                background-color: rgb(2, 92, 188);
+            transition: all 0.3s ease-in;
+            }
+            .submitc:active {
+            position: absolute;
+            top: 2px;
+            left:40vw;
+            box-shadow: 0 0 0 0px black;
+            }
+        .htu {
+        position: absolute;
+        top: 750px;
+        width: 100vw;
+        font-size: 30px;
+        }
+        .ordered-list {
+        position: absolute;
+        top: 80px;
+        left: 50px;
+        line-height: 1.7;
+        }
+        .link-box {
+        position: absolute;
+        top: 400px;
+        height: 35px;
+        width: 30vw;
+        left: 35vw;
+        font-size: 25px;
+        }
+        @media screen and (max-width: 746px) {
+        .htu {
+            display: flex;
+
+            justify-content: space-around;
+            align-items: center;
+            
+        font-size: 20px;
+        }
+        }
+        @media screen and (max-width: 521px) {
+        .box1 {
+            top: 175px;
+        }
+        .heading {
+            font-size: 50px;
+        }
+        .input-button,
+        .link-box {
+            font-size: 15px;
+        }
+        .link-box {
+            height: 25px;
+        }
+
+        .htu {
+            font-size: 15px;
+            top: 650px;
+        }
+        .ordered-list {
+            top: 50px;
+        }
+        }
+        @media screen and (max-width: 375px) {
+        .htu {
+            font-size: 12px;
+        }
+        .link-box {
+            width: 100px;
+        }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <div class="head-m">FIR PDF parser</div>
+    </div>
+    <div class="mid">
+        <div class="box1">
+            <div class="boxin">
+                <form action="{% url 'normalupload' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <input id="user-input" name="myfile" type="file" multiple="" accept="application/pdf,.pdf"
+                    class="input-button" required="required">
+                <!-- <input type="submit" value="Submit" class="submit"> -->
+            </div>
+        </div>
+    </div>
+    <div class="head2">
+        <button type="submit" value="submit" class="submit">
+            <h1>
+                Submit
+                </h3>
+        </button>
+    </div>
+</form>
+    <div class="head3">
+        <div class="htu">
+            <h1>
+                how to convert fir pdf to json
+                </br>
+            </h1>
+            <ol class="ordered-list">
+                <li class="list-item">
+                    Drag and drop your file to our PDF to json Converter.
+                </li>
+                <li class="list-item">
+                    If the file is a scan, OCR will activate automatically.
+                </li>
+                <li class="list-item">
+                    Wait for Smallpdf to reconstruct the file to JSON format.
+                </li>
+                <li class="list-item">
+                    Download the converted file to your computer.
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="head2_">
+        <form action="{% url 'downloader' %}" method="post">
+            {% csrf_token %}
+        <button type="submit" value="submit" class="submitc">
+        </form>
+            <h1>
+                Download
+                </h3>
+        </button>
+    </div>
+</body>
+
+</html>
